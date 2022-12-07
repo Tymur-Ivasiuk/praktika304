@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'fonds/css/styles.css' %}">
+
+    <title>Головна сторінка</title>
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="header-menu">
+                <a href="#about" class="header-tag">
+                    Про сайт
+                </a>
+                <a href="{% url 'support' %}" class="header-tag">
+                    Підтримка
+                </a>
+                <a href="#fonds" class="header-tag">
+                    Фонди
+                </a>
+                <a href="{% url 'zsu' %}" class="header-tag">
+                    На ЗСУ
+                </a>
+
+            </div>
+
+            <section class="pre-view">
+                <h1 class="title">
+                    Підтримка ЗСУ та України
+                </h1>
+                <h2 class="title-desc">
+                    підтримай Україну та героїв ЗСУ, які
+                    зараз захищають нас від окупантів
+                </h2>
+                <a href="{% url 'zsu' %}" class="title-button_support">
+                    <span class="title-button-text">Підтримати</span>
+                    <img src="{% static 'fonds/img/arrow.svg' %}" alt="arrow" class="title-button-arrow">
+                </a>
+            </section>
+        </div>
+    </header>
+    <div class="wrapper">
+        <main class="main">
+            <section class="about" id="about">
+                <h2 class="about-title">
+                    ПРО САЙТ
+                </h2>
+                <div class="about-desc">
+                    <div class="about-text-img">
+                        <div class="about-text">
+                            Сайт створений трьома студентами коледжу
+                            при ЧНУ. Ціль сайту в допомозі рідній країні
+                            під час війни.
+                            <br><br>
+                            Тут зібрані актуальні на даний момент сайти
+                            різної допомоги, ЗСУ, гуманітарна, чи допомога
+                            дітям з вадами, або ж тим хто постраждав в
+                            результаті війни.
+                            <br><br>
+                            Ціль сайту - допомогти людям у яких є бажання
+                            матеріально підтримати країну, але не знають
+                            куда звертатись, тому ми зібрали багато
+                            актуальних фондів по різним напрямкам, та
+                            добавили про кожен інформацію щоб людина
+                            знала чим займатється той чи інший фонд.
+                        </div>
+                        <img src="{% static 'fonds/img/chnu.jpg' %}" alt="chnu" class="about-img">
+                    </div>
+                </div>
+            </section>
+            <section class="fond-list">
+                <h2 class="fond-list-title" id="fonds">
+                    Фонди
+                </h2>
+                <div class="fond-lists">
+                    <div class="fond-list-item">
+                        <img src="{% static 'fonds/img/gerb.svg' %}" alt="gerb" class="fond-list-item_gerb">
+                        <h3 class="fond-list-item_title">
+                            ЗСУ
+                        </h3>
+                        <div class="fond-list-item_decs">
+                            Підтримка Збройних сил України
+                        </div>
+                        <img src="{% static 'fonds/img/first-fond.jpg' %}" alt="fond" class="fond-list-item_img">
+                        <a href="{% url 'zsu' %}" class="fond-list-item_link">ПІДТРИМАТИ</a>
+                    </div>
+                    <div class="fond-list-item">
+                        <h3 class="fond-list-item_title">
+                            ПІДТРИМКА
+                        </h3>
+                        <div class="fond-list-item_decs">
+                            Фінансування гуманітарної допомоги
+                        </div>
+                        <img src="{% static 'fonds/img/second-fond.jpg' %}" alt="fond" class="fond-list-item_img">
+                        <a href="{% url 'support' %}" class="fond-list-item_link">ПІДТРИМАТИ</a>
+                    </div>
+                    <div class="fond-list-item">
+                        <h3 class="fond-list-item_title">
+                            БЛАГОДІЙНІСТЬ
+                        </h3>
+                        <div class="fond-list-item_decs">
+                            Допомога в зборах коштів на допомогу
+                        </div>
+                        <img src="{% static 'fonds/img/third-fond.jpg' %}" alt="fond" class="fond-list-item_img">
+                        <a href="{% url 'charity' %}" class="fond-list-item_link">ПІДТРИМАТИ</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+
+        </footer>
+
+    </div>
+</body>
+</html>

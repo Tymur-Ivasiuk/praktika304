@@ -1,0 +1,342 @@
+{% load static %}
+{% load fonds_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fonds/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'fonds/css/stylesItem.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <a href="{% url 'home' %}" class="move-back">
+                <img src="{% static 'fonds/img/arrow-left-solid.svg' %}" alt="back" class="arrow-back">
+            </a>
+            <h1 class="title">
+                {{ title }}
+            </h1>
+        </header>
+
+        <main class="main">
+            {% if quotes %}
+                <section class="quote_sect">
+                    <div class="quotes_slider">
+                        {% for i in quotes %}
+                            <div class="slider__item">
+                                <div class="quote_wrap">
+                                    {% for j in i %}
+                                        <div class="quote">
+                                            <div class="quote-text">
+                                                {{ j.desc }}
+                                            </div>
+                                            <div class="quote-author">
+                                                {{ j.author }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endif %}
+
+            <section class="fonds">
+                {% for i in fonds %}
+                    {% if i.photos_set.all %}
+                        {% if i.photos_set.all|length_is:"1" %}
+                            <div class="fond-item">
+                                <div class="swiper-wrap" style="visibility: hidden;">
+                                    <div class="swiper-container js-carousel">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                            <div class="swiper-slide" style="text-align: center"><span>TEXT</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-wrap">
+                                    <div class="swiper-container js-carousel">
+                                        <div class="swiper-wrapper">
+                                            {% for h in 10|range_temp %}
+                                                <div class="swiper-slide" style="text-align: center"><span>{{ i.title }}</span></div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fond-info">
+                                    <div class="fond-info_images_1style">
+                                        {% for j in i.photos_set.all %}
+                                            <div class="fond-image-1style-wrap">
+                                                <img src="{{ j.photo.url }}" alt="fond-image" class="fond-image-1style">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="fond-info_text">
+                                        <div class="fond-info_text_title">
+                                            {{ i.title }}
+                                        </div>
+                                        <div class="fond-info_text_1style_text">
+                                            {{ i.desc }}
+                                        </div>
+                                        <a href="{{ i.url_global }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% elif i.photos_set.all|length_is:"2" %}
+                            <div class="fond-item">
+                                <div class="swiper-wrap">
+                                    <div class="swiper-container js-carousel">
+                                        <div class="swiper-wrapper">
+                                            {% for h in 10|range_temp %}
+                                                <div class="swiper-slide" style="text-align: center"><span>{{ i.title }}</span></div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="fond-info styles-2">
+                                    <div class="fond-info-pol-2styles">
+                                        <div class="fond-image-2style-wrap">
+                                            <img src="{{ i.photos_set.all.0.photo.url }}" alt="fond-image" class="fond-image-2style">
+                                        </div>
+                                        <div class="fond-info_text_2style_text left-text-fond">
+                                            {{ i.desc|firstpart }}
+                                        </div>
+                                        <a href="{{ i.url_global }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
+                                    </div>
+                                    <div class="fond-info-pol-2styles">
+                                        <h2 class="fond-info_text_title">
+                                            {{ i.title }}
+                                        </h2>
+                                        <div class="fond-info_text_2style_text right-text-fond">
+                                            {{ i.desc|secondpart }}
+                                        </div>
+                                        <div class="fond-image-2style-wrap">
+                                            <img src="{{ i.photos_set.all.1.photo.url }}" alt="fond-image" class="fond-image-2style">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% elif i.photos_set.all|length_is:"3" %}
+                            <div class="fond-item">
+                                <div class="swiper-wrap">
+                                    <div class="swiper-container js-carousel">
+                                        <div class="swiper-wrapper">
+                                            {% for h in 10|range_temp %}
+                                                <div class="swiper-slide" style="text-align: center"><span>{{ i.title }}</span></div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="fond-info styles-3">
+                                    <div class="fond-info_images_3style">
+                                        <div class="first-row">
+                                            <div class="fond-image-3style-wrap">
+                                                <img src="{{ i.photos_set.all.0.photo.url }}" alt="fond-image" class="fond-image-3style">
+                                            </div>
+                                            <div class="fond-image-3style-wrap">
+                                                <img src="{{ i.photos_set.all.1.photo.url }}" alt="fond-image" class="fond-image-3style">
+                                            </div>
+                                        </div>
+                                        <div class="fond-image-3style-wrap">
+                                            <img src="{{ i.photos_set.all.2.photo.url }}" alt="fond-image" class="fond-image-3style style3-big">
+                                        </div>
+                                    </div>
+                                    <div class="fond-info_text">
+                                        <h2 class="fond-info_text_title">
+                                            {{ i.title }}
+                                        </h2>
+                                        <div class="fond-info_text_3style_text">
+                                            {{ i.desc }}
+                                        </div>
+                                        <a href="{{ i.url_global }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% elif i.photos_set.all|length >= 4 %}
+                            <div class="fond-item">
+                                <div class="swiper-wrap">
+                                    <div class="swiper-container js-carousel">
+                                        <div class="swiper-wrapper">
+                                            {% for h in 10|range_temp %}
+                                                <div class="swiper-slide" style="text-align: center"><span>{{ i.title }}</span></div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="fond-info">
+                                    <div class="fond-info_images_style-4">
+                                        {% for j in i.photos_set.all|slice:":4" %}
+                                            <div class="fond-image-4style-wrap">
+                                                <img src="{{ j|get_photo_url }}" alt="fond-image" class="fond-image-4style">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="fond-info_text">
+                                        <h2 class="fond-info_text_title">
+                                            {{ i.title }}
+                                        </h2>
+                                        <div class="fond-info_text_4style_text">
+                                            {{ i.desc }}
+                                        </div>
+                                        <a href="{{ i.global_url }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </section>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'fonds/js/slick.min.js' %}"></script>
+    <script src="{% static 'fonds/js/slider.js' %}"></script>
+    <script src="{% static 'fonds/js/marquee.js' %}"></script>
+</body>
+</html>

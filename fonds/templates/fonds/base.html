@@ -39,7 +39,7 @@
                                     {% for j in i %}
                                         <div class="quote">
                                             <div class="quote-text">
-                                                {{ j.desc }}
+                                                {{ j.desc|linebreaks }}
                                             </div>
                                             <div class="quote-author">
                                                 {{ j.author }}
@@ -213,7 +213,7 @@
                                             {{ i.title }}
                                         </div>
                                         <div class="fond-info_text_1style_text">
-                                            {{ i.desc }}
+                                            {{ i.desc|linebreaksbr }}
                                         </div>
                                         <a href="{{ i.url_global }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
                                     </div>
@@ -238,7 +238,7 @@
                                             <img src="{{ i.photos_set.all.0.photo.url }}" alt="fond-image" class="fond-image-2style">
                                         </div>
                                         <div class="fond-info_text_2style_text left-text-fond">
-                                            {{ i.desc|firstpart }}
+                                            {{ i.desc|firstpart|linebreaksbr }}
                                         </div>
                                         <a href="{{ i.url_global }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
                                     </div>
@@ -247,7 +247,7 @@
                                             {{ i.title }}
                                         </h2>
                                         <div class="fond-info_text_2style_text right-text-fond">
-                                            {{ i.desc|secondpart }}
+                                            {{ i.desc|secondpart|linebreaksbr }}
                                         </div>
                                         <div class="fond-image-2style-wrap">
                                             <img src="{{ i.photos_set.all.1.photo.url }}" alt="fond-image" class="fond-image-2style">
@@ -288,7 +288,7 @@
                                             {{ i.title }}
                                         </h2>
                                         <div class="fond-info_text_3style_text">
-                                            {{ i.desc }}
+                                            {{ i.desc|linebreaksbr }}
                                         </div>
                                         <a href="{{ i.url_global }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
                                     </div>
@@ -321,7 +321,7 @@
                                             {{ i.title }}
                                         </h2>
                                         <div class="fond-info_text_4style_text">
-                                            {{ i.desc }}
+                                            {{ i.desc|linebreaksbr }}
                                         </div>
                                         <a href="{{ i.global_url }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
                                     </div>

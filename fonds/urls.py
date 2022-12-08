@@ -6,9 +6,7 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='home'),
-    path('zsu/', zsu, name='zsu'),
-    path('support/', support, name='support'),
-    path('charity/', charity, name='charity'),
+    path('category/<slug:section_slug>', category_posts, name='category')
 ]
 
 if settings.DEBUG:

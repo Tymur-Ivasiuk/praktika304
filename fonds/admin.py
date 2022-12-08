@@ -29,6 +29,7 @@ class SectionAdmin(admin.ModelAdmin):
     inlines = [
         QuotesInline
     ]
+    prepopulated_fields = {'slug':('title',)}
 
 admin.site.register(Section, SectionAdmin)
 admin.site.register(Fonds, FondsAdmin)

@@ -1,12 +1,20 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 
 class Section(models.Model):
     title = models.CharField(max_length=50, unique=True, verbose_name='Назва')
+    desc = models.CharField(max_length=255, blank=True, verbose_name='Опис')
+    image = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name='Фото секції')
+
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='SLUG')
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'section_slug': self.slug})
 
     class Meta:
         verbose_name = 'Розділ'
@@ -20,6 +28,9 @@ class Fonds(models.Model):
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True, verbose_name='Опубліковано')
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'section_slug': self.section_id.slug})
 
     def __str__(self):
         return self.title

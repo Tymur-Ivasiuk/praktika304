@@ -18,16 +18,14 @@
                 <a href="#about" class="header-tag">
                     Про сайт
                 </a>
-                <a href="{% url 'support' %}" class="header-tag">
-                    Підтримка
-                </a>
                 <a href="#fonds" class="header-tag">
                     Фонди
                 </a>
-                <a href="{% url 'zsu' %}" class="header-tag">
-                    На ЗСУ
-                </a>
-
+                {% for i in section %}
+                    <a href="{{ i.get_absolute_url }}" class="header-tag">
+                        {{ i.title }}
+                    </a>
+                {% endfor %}
             </div>
 
             <section class="pre-view">
@@ -38,7 +36,7 @@
                     підтримай Україну та героїв ЗСУ, які
                     зараз захищають нас від окупантів
                 </h2>
-                <a href="{% url 'zsu' %}" class="title-button_support">
+                <a href="#fonds" class="title-button_support">
                     <span class="title-button-text">Підтримати</span>
                     <img src="{% static 'fonds/img/arrow.svg' %}" alt="arrow" class="title-button-arrow">
                 </a>
@@ -79,37 +77,21 @@
                     Фонди
                 </h2>
                 <div class="fond-lists">
-                    <div class="fond-list-item">
-                        <img src="{% static 'fonds/img/gerb.svg' %}" alt="gerb" class="fond-list-item_gerb">
-                        <h3 class="fond-list-item_title">
-                            ЗСУ
-                        </h3>
-                        <div class="fond-list-item_decs">
-                            Підтримка Збройних сил України
+                    {% for i in section %}
+                        <div class="fond-list-item">
+                            {% if i.title == "ЗСУ" %}
+                                <img src="{% static 'fonds/img/gerb.svg' %}" alt="gerb" class="fond-list-item_gerb">
+                            {% endif %}
+                            <h3 class="fond-list-item_title">
+                                {{ i.title }}
+                            </h3>
+                            <div class="fond-list-item_decs">
+                                {{ i.desc }}
+                            </div>
+                            <img src="{{ i.image.url }}" alt="fond" class="fond-list-item_img">
+                            <a href="{{ i.get_absolute_url }}" class="fond-list-item_link">ПІДТРИМАТИ</a>
                         </div>
-                        <img src="{% static 'fonds/img/first-fond.jpg' %}" alt="fond" class="fond-list-item_img">
-                        <a href="{% url 'zsu' %}" class="fond-list-item_link">ПІДТРИМАТИ</a>
-                    </div>
-                    <div class="fond-list-item">
-                        <h3 class="fond-list-item_title">
-                            ПІДТРИМКА
-                        </h3>
-                        <div class="fond-list-item_decs">
-                            Фінансування гуманітарної допомоги
-                        </div>
-                        <img src="{% static 'fonds/img/second-fond.jpg' %}" alt="fond" class="fond-list-item_img">
-                        <a href="{% url 'support' %}" class="fond-list-item_link">ПІДТРИМАТИ</a>
-                    </div>
-                    <div class="fond-list-item">
-                        <h3 class="fond-list-item_title">
-                            БЛАГОДІЙНІСТЬ
-                        </h3>
-                        <div class="fond-list-item_decs">
-                            Допомога в зборах коштів на допомогу
-                        </div>
-                        <img src="{% static 'fonds/img/third-fond.jpg' %}" alt="fond" class="fond-list-item_img">
-                        <a href="{% url 'charity' %}" class="fond-list-item_link">ПІДТРИМАТИ</a>
-                    </div>
+                    {% endfor %}
                 </div>
             </section>
         </main>

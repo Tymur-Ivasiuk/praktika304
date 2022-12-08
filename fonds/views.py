@@ -10,39 +10,16 @@ def func(lst, n):
     return fin_list
 
 def index(request):
-    return render(request, 'fonds/index.html')
+    section = Section.objects.all()
+    return render(request, 'fonds/index.html', {'section': section})
 
-def zsu(request):
-    quotes = func(Quotes.objects.all().filter(section_id__title="ЗСУ"), 2)
-    fonds = Fonds.objects.all().filter(section_id__title="ЗСУ").filter(is_published=True).prefetch_related('photos_set')
+def category_posts(request, section_slug):
+    quotes = func(Quotes.objects.all().filter(section_id__slug=section_slug), 2)
+    fonds = Fonds.objects.all().filter(section_id__slug=section_slug).filter(is_published=True).prefetch_related('photos_set')
     if not fonds:
         raise Http404('Немає фондів')
     ctx = {
-        'title': "ЗСУ",
-        'quotes': quotes,
-        'fonds': fonds,
-    }
-    return render(request, 'fonds/base.html', ctx)
-
-def support(request):
-    quotes = func(Quotes.objects.all().filter(section_id__title="Підтримка"), 2)
-    fonds = Fonds.objects.all().filter(section_id__title="Підтримка").prefetch_related('photos_set')
-    if not fonds:
-        raise Http404('Немає фондів')
-    ctx = {
-        'title': "Підтримка",
-        'quotes': quotes,
-        'fonds': fonds,
-    }
-    return render(request, 'fonds/base.html', ctx)
-
-def charity(request):
-    quotes = func(Quotes.objects.all().filter(section_id__title="Благодійність"), 2)
-    fonds = Fonds.objects.all().filter(section_id__title="Благодійність").prefetch_related('photos_set')
-    if not fonds:
-        raise Http404('Немає фондів')
-    ctx = {
-        'title': "Благодійність",
+        'title': fonds[0].section_id.title,
         'quotes': quotes,
         'fonds': fonds,
     }

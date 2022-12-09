@@ -5,8 +5,8 @@ from praktika import settings
 from .views import *
 
 urlpatterns = [
-    path('', index, name='home'),
-    path('category/<slug:section_slug>', category_posts, name='category')
+    path('', HomeView.as_view(), name='home'),
+    path('category/<slug:section_slug>', CategoryView.as_view(), name='category')
 ]
 
 if settings.DEBUG:

@@ -238,7 +238,7 @@
                                             <img src="{{ i.photos_set.all.0.photo.url }}" alt="fond-image" class="fond-image-2style">
                                         </div>
                                         <div class="fond-info_text_2style_text left-text-fond">
-                                            {{ i.desc|firstpart|linebreaksbr }}
+                                            {{ i.desc|secondpart|linebreaksbr }}
                                         </div>
                                         <a href="{{ i.url_global }}" class="fond-info_text_link">ПІДТРИМАТИ</a>
                                     </div>
@@ -247,7 +247,7 @@
                                             {{ i.title }}
                                         </h2>
                                         <div class="fond-info_text_2style_text right-text-fond">
-                                            {{ i.desc|secondpart|linebreaksbr }}
+                                            {{ i.desc|firstpart|linebreaksbr }}
                                         </div>
                                         <div class="fond-image-2style-wrap">
                                             <img src="{{ i.photos_set.all.1.photo.url }}" alt="fond-image" class="fond-image-2style">

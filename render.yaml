@@ -1,0 +1,25 @@
+databases:
+  - name: django_render_db
+    plan: free
+    databaseName: django_render_db
+    user: django_user
+
+services:
+  - type: web
+    name: django_render
+    env: python
+    buildCommand: './build.sh'
+    startCommand: 'gunicorn praktika.wsgi:application'
+    plan: free
+    branch: master
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: django_render_db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
+    autoDeploy: true
